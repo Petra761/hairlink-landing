@@ -1,32 +1,47 @@
 import type { DatosInscripcion, ResultadoEnvio } from "../types/inscripcion";
+import { obtenerClienteSupabase, textoONulo } from "./supabase";
+import {
+  limpiarParametroOrigen,
+  normalizarWhatsapp,
+} from "./validacionInscripcion";
 
-/**
- * Función provisional para registrar una inscripción a la beta de HairLink.
- *
- * NOTA DE ARQUITECTURA:
- * Esta función es provisional y simula el tiempo de respuesta de red.
- * Será reemplazada en una fase posterior por la integración real con Supabase.
- * La firma de esta función (parámetro DatosInscripcion y retorno Promise<ResultadoEnvio>)
- * debe mantenerse inalterada para no acoplar la interfaz de usuario con la base de datos.
- */
 export async function enviarInscripcion(
   datos: DatosInscripcion,
 ): Promise<ResultadoEnvio> {
-  // Simulación de latencia de red de aproximadamente 800 ms
-  await new Promise((resolve) => setTimeout(resolve, 800));
+  const supabase = obtenerClienteSupabase();
+  if (!supabase) return { ok: false, motivo: "desconocido" };
 
-  const correoNormalizado = datos.correo.trim().toLowerCase();
+  // Se arma la fila con los nombres exactos de las columnas de la tabla.
+  // Aunque el formulario ya limpia los datos, aquí se repite la limpieza
+  // para no depender de lo que haga cada pantalla.
+  const fila = {
+    nombre: datos.nombre.trim(),
+    correo: datos.correo.trim().toLowerCase(),
+    perfil: datos.perfil,
+    necesidad: datos.necesidad,
+    interes: datos.interes,
+    whatsapp: textoONulo(normalizarWhatsapp(datos.whatsapp)),
+    empresa: textoONulo(datos.empresa),
+    consentimiento: datos.consentimiento,
+    origen: limpiarParametroOrigen(datos.origen),
+  };
 
-  // Caso de prueba temporal: simula colisión de correo duplicado
-  if (correoNormalizado === "duplicado@prueba.com") {
-    return { ok: false, motivo: "duplicado" };
-  }
+  try {
+    // Solo se inserta: la tabla no permite leer, así que no se pide la fila de vuelta
+    const { error } = await supabase.from("beta_inscritos").insert(fila);
 
-  // Caso de prueba temporal: simula fallo de conexión a Internet
-  if (correoNormalizado === "error@prueba.com") {
+    if (!error) return { ok: true };
+
+    // 23505 es el código de Postgres para "valor único repetido":
+    // el índice único del correo detectó una inscripción duplicada
+    if (error.code === "23505") return { ok: false, motivo: "duplicado" };
+
+    // Sin código de error suele significar que la petición no llegó al servidor
+    if (!error.code) return { ok: false, motivo: "red" };
+
+    return { ok: false, motivo: "desconocido" };
+  } catch {
+    // Fallo de conexión antes de obtener respuesta
     return { ok: false, motivo: "red" };
   }
-
-  // En cualquier otro caso, se considera una inscripción exitosa
-  return { ok: true };
 }
