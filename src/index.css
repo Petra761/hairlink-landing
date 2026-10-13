@@ -1,1 +1,131 @@
 @import "tailwindcss";
+
+/* 
+ * Configuración de tema para Tailwind CSS v4.
+ * Define la paleta corporativa oscura y dorada junto a fuentes del sistema de alto impacto.
+ */
+@theme {
+  --color-ink: #0b0b0b;
+  --color-ink-soft: #171717;
+  --color-ink-line: #2a2a2a;
+
+  --color-gold-300: #ffe08a;
+  --color-gold-400: #f7c948;
+  --color-gold-500: #f2b705;
+  --color-gold-600: #c99700;
+
+  --color-cream: #fbf8ef;
+  --color-white: #ffffff;
+
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 
+ * Animaciones personalizadas con CSS puro.
+ * Las flotaciones operan únicamente sobre translateY para no alterar inclinaciones 3D.
+ */
+@keyframes flotarSuave {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes flotarInverso {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulsoDorado {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes destelloBrillo {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  25%,
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@keyframes entradaSuave {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Clases de utilidad para aplicar animaciones */
+.anim-flotar {
+  animation: flotarSuave 6s ease-in-out infinite;
+}
+
+.anim-flotar-lento {
+  animation: flotarInverso 7.5s ease-in-out infinite;
+}
+
+.anim-pulso-lento {
+  animation: pulsoDorado 5s ease-in-out infinite;
+}
+
+.anim-destello {
+  animation: destelloBrillo 4s ease-in-out infinite;
+}
+
+.anim-entrada {
+  animation: entradaSuave 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Fondo con patrón sutil de cuadrícula dorada para dar textura premium */
+.bg-cuadricula-dorada {
+  background-image: radial-gradient(
+    rgba(242, 183, 5, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* Desactivación total de movimientos para usuarios con preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .anim-flotar,
+  .anim-flotar-lento,
+  .anim-pulso-lento,
+  .anim-destello,
+  .anim-entrada {
+    animation: none !important;
+    transform: none !important;
+  }
+}

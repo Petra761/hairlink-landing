@@ -1,12 +1,52 @@
 <!doctype html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hairlink-landing</title>
+
+    <!-- Título y descripción principal -->
+    <title>
+      HairLink | Tu agenda y tus clientes te siguen, aunque cambies de local
+    </title>
+    <meta
+      name="description"
+      content="Aplicación de agenda y perfil profesional para peluqueros y barberos en Tarija, Bolivia. Tus clientes consultan tus horarios y reservan sin interrumpir tus cortes."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph para compartir por WhatsApp, Facebook y enlaces sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_BO" />
+    <meta property="og:site_name" content="HairLink" />
+    <meta
+      property="og:title"
+      content="HairLink · Agenda y perfil independiente para barberos y peluqueros en Tarija"
+    />
+    <meta
+      property="og:description"
+      content="Tus clientes ven tu disponibilidad real y reservan solos. Participa de la prueba beta en Tarija, Bolivia."
+    />
+    <!-- Ruta de imagen Open Graph pendiente de añadir al desplegar en producción -->
+    <meta property="og:image" content="/og-hairlink.png" />
+    <meta
+      property="og:image:alt"
+      content="HairLink - Plataforma para peluqueros y barberos en Tarija"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="HairLink · Tu agenda y clientes te siguen, aunque cambies de local"
+    />
+    <meta
+      name="twitter:description"
+      content="Perfil profesional y disponibilidad visible para barberos y estilistas en Tarija."
+    />
   </head>
-  <body>
+  <body
+    class="bg-ink text-white antialiased selection:bg-gold-500 selection:text-ink font-sans"
+  >
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
