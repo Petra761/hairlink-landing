@@ -35,7 +35,7 @@ export const MensajeExito: React.FC = () => {
 
       <a
         href="/cuestionario"
-        className="inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-[48px] rounded-xl bg-gold-500 hover:bg-gold-400 active:bg-gold-600 text-ink font-bold text-base shadow-[0_4px_16px_rgba(242,183,5,0.3)] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
+        className="inline-flex items-center justify-center gap-2 px-6 py-3.5 min-h-12 rounded-xl bg-gold-500 hover:bg-gold-400 active:bg-gold-600 text-ink font-bold text-base shadow-[0_4px_16px_rgba(242,183,5,0.3)] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500"
       >
         <span>Responder el cuestionario</span>
         <ArrowRight className="w-4 h-4" aria-hidden="true" />

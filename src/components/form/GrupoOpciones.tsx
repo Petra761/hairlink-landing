@@ -60,7 +60,7 @@ export const GrupoOpciones: React.FC<PropsGrupoOpciones> = ({
             <label
               key={opcion}
               htmlFor={inputId}
-              className={`relative flex items-center justify-between p-3.5 rounded-xl border text-base cursor-pointer transition-all select-none min-h-[48px] focus-within:ring-2 focus-within:ring-gold-500 focus-within:ring-offset-2 ${
+              className={`relative flex items-center justify-between p-3.5 rounded-xl border text-base cursor-pointer transition-all select-none min-h-12 focus-within:ring-2 focus-within:ring-gold-500 focus-within:ring-offset-2 ${
                 estaSeleccionado
                   ? "bg-gold-500 text-ink font-bold border-gold-600 shadow-sm"
                   : "bg-white text-ink border-ink-line/30 hover:border-gold-500/60 hover:bg-gold-500/5 font-medium"

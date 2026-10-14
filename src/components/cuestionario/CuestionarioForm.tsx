@@ -231,7 +231,7 @@ export const CuestionarioForm: React.FC = () => {
                           : "border-ink-line/40"
                       }`}
                     >
-                      {activo && <Check className="w-3 h-3 stroke-[3]" />}
+                      {activo && <Check className="w-3 h-3 stroke-3" />}
                     </span>
                   </button>
                 );
@@ -264,7 +264,7 @@ export const CuestionarioForm: React.FC = () => {
               type="number"
               min="0"
               placeholder="Ej. 4"
-              className="w-full min-h-[48px] px-3.5 py-2.5 text-base text-ink bg-white rounded-xl border border-ink-line/30 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none"
+              className="w-full min-h-12 px-3.5 py-2.5 text-base text-ink bg-white rounded-xl border border-ink-line/30 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none"
               {...register("experiencia_anios", { valueAsNumber: true })}
             />
             {errors.experiencia_anios && (
@@ -345,7 +345,7 @@ export const CuestionarioForm: React.FC = () => {
               type="number"
               min="1"
               placeholder="Ej. 35"
-              className="w-full min-h-[48px] px-3.5 py-2.5 text-base text-ink bg-white rounded-xl border border-ink-line/30 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none"
+              className="w-full min-h-12 px-3.5 py-2.5 text-base text-ink bg-white rounded-xl border border-ink-line/30 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none"
               {...register("clientes_semana", { valueAsNumber: true })}
             />
             {errors.clientes_semana && (
@@ -408,7 +408,7 @@ export const CuestionarioForm: React.FC = () => {
                           : "border-ink-line/40"
                       }`}
                     >
-                      {activo && <Check className="w-3 h-3 stroke-[3]" />}
+                      {activo && <Check className="w-3 h-3 stroke-3" />}
                     </span>
                   </button>
                 );
@@ -663,7 +663,7 @@ export const CuestionarioForm: React.FC = () => {
                     onClick={() =>
                       setValue("interes_app", num, { shouldValidate: true })
                     }
-                    className={`p-3 rounded-xl border text-lg font-black min-h-[48px] flex items-center justify-center cursor-pointer transition-all select-none ${
+                    className={`p-3 rounded-xl border text-lg font-black min-h-12 flex items-center justify-center cursor-pointer transition-all select-none ${
                       activo
                         ? "bg-gold-500 text-ink border-gold-600 shadow-sm"
                         : "bg-white text-ink border-ink-line/30 hover:border-gold-500/50"
@@ -720,7 +720,7 @@ export const CuestionarioForm: React.FC = () => {
                           : "border-ink-line/40"
                       }`}
                     >
-                      {activo && <Check className="w-3 h-3 stroke-[3]" />}
+                      {activo && <Check className="w-3 h-3 stroke-3" />}
                     </span>
                   </button>
                 );
@@ -797,7 +797,7 @@ export const CuestionarioForm: React.FC = () => {
                 type="number"
                 min="0"
                 placeholder="0"
-                className="w-full min-h-[48px] pl-10 pr-3.5 py-2.5 text-base text-ink bg-white rounded-xl border border-ink-line/30 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none"
+                className="w-full min-h-12 pl-10 pr-3.5 py-2.5 text-base text-ink bg-white rounded-xl border border-ink-line/30 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none"
                 {...register("precio_mensual_bs", { valueAsNumber: true })}
               />
             </div>

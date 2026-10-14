@@ -48,7 +48,7 @@ export const EscalaInteres: React.FC<PropsEscalaInteres> = ({
               key={numero}
               htmlFor={inputId}
               onClick={() => alSeleccionar(numero)}
-              className={`flex items-center justify-center p-3 rounded-xl border text-lg font-black min-h-[48px] cursor-pointer transition-all select-none focus-within:ring-2 focus-within:ring-gold-500 focus-within:ring-offset-2 ${
+              className={`flex items-center justify-center p-3 rounded-xl border text-lg font-black min-h-12 cursor-pointer transition-all select-none focus-within:ring-2 focus-within:ring-gold-500 focus-within:ring-offset-2 ${
                 estaSeleccionado
                   ? "bg-gold-500 text-ink border-gold-600 shadow-sm"
                   : "bg-white text-ink border-ink-line/30 hover:border-gold-500/60 hover:bg-gold-500/5"

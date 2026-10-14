@@ -51,7 +51,7 @@ export const CampoTexto = forwardRef<HTMLInputElement, PropsCampoTexto>(
           aria-invalid={Boolean(error)}
           aria-describedby={describedBy}
           aria-required={obligatorio}
-          className={`w-full min-h-[48px] px-3.5 py-2.5 text-base text-ink bg-white rounded-xl border transition-colors outline-none ${
+          className={`w-full min-h-12 px-3.5 py-2.5 text-base text-ink bg-white rounded-xl border transition-colors outline-none ${
             error
               ? "border-red-500 focus:border-red-600 focus:ring-2 focus:ring-red-500/20"
               : "border-ink-line/30 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/25"

@@ -39,7 +39,7 @@ export const Boton: React.FC<PropsBoton> = ({
 
   const estilosTamano = {
     sm: "px-4 py-2 text-sm gap-2",
-    md: "px-6 py-3.5 text-base gap-2.5 min-h-[48px]",
+    md: "px-6 py-3.5 text-base gap-2.5 min-h-12",
     lg: "px-8 py-4 text-lg gap-3 min-h-[54px]",
   }[tamano];
 
